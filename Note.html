@@ -3,24 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Note Page</title>
+        <title>Login Page</title>
         <link href="style.css" rel="stylesheet">
-        <img src="./Images/Rabbit.jpg" alt="Rabbit" width="500" height="300"><br>
     </head>
-    <body>
-        <nav class="flexibox">
-            <a href="./login.html">Signup page</a>
-            <a href="./register.html">Notes page</a>
-        </nav>
-            <main class="middle">
-                <form id="Noteform">
-                     <label for="note">Note</label>:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                     <input type="text" id="note" name="note" placeholder="Enter your note" class="Notes">
-                     <br>
-                     <input type="submit" value="submit" class="Notes">
-                </form>
-            </main>
-            <script src="main.js"></script>
-        
+    <body class="note">
+        <form id="note">
+            <label for="note">Note</label>:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="noteid" name="note" placeholder="Enter your note" class="Notes">
+            <br>
+            <input type="submit" value="submit" class="Notes">
+        </form>
+        <img src="./Images/Rabbit.jpg" alt="Rabbit" width="500" height="300"><br>
+        <a href="./login.html">Signup page</a>
+        <a href="./register.html">Notes page</a>
+        <script src="main.js"></script>
     </body>
- </html> 
+</html> 

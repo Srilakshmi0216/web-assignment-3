@@ -8,33 +8,31 @@
     <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <nav class="flexibox">
-            <a href="./Login.html">Login page</a>
-            <a href="./note.html">Notes page</a>
-        </nav>
-            <main class="middle">
-                <h3>fill the form to register</h3>
-                <br>
-                <form action="send registering data toserver" method="post" id="regform">
-                    <label for="fname">First name:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" id="fname" name="fname" placeholder="Enter your first name">
-                    <br>
-                    <label for="fname">Last name:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" id="fname" name="fname" placeholder="Enter your Last name">
-                    <br>
-                    <label for="uname">Username or Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" id="uname" name="uname" placeholder="Enter your  Username/Email">
-                    <br>
-                    <label for="password">password:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="password" id="password" name="password" placeholder="Enter your password">
-                    <br>
-                    <input type="submit" value="submit" class="register">
-                </form>
-            </main>
+        <form action="/action_page.php" id="formreg">
+            
+            <label for="fname">First name:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="fname" name="fname" placeholder="Enter your first name">
+            <br>
+            <label for="fname">Last name:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="lname" name="lname" placeholder="Enter your Last name">
+            <br>
+            <label for="uname">Username or Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="uname" name="uname" placeholder="Enter your  Username/Email">
+            <br>
+            <label for="password">password:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <br>
+            <input type="submit" value="submit">
+        </form>
+        <a href="./Login.html">Login page</a>
+        <a href="./note.html">Notes page</a>
+        <script src="main.js"></script>
+
      </body>
+     
 </html>
             
-        
+          
 
 
 
