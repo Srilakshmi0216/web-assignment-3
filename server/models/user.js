@@ -30,12 +30,12 @@ await con.query(sql);
 createTable();
 
 async function register(user) {
-let cUser = await getUser(user.email);
+let cUser = await getUser(user);
 console.log(user)
 if(cUser.length > 0) throw error("email already in use");
 
-const sql = `INSERT INTO users (firstname,lastname,email,password )
-  VALUES ("${user.firstname}", "${user.lastname}","${user.email}","${user.password}");
+const sql = `INSERT INTO users (firstname,lastname,emailid,password )
+  VALUES ("${user.firstname}", "${user.lastname}","${user.emailid}","${user.password}");
 `
 await con.query(sql);
 return await login(user);
@@ -61,7 +61,7 @@ async function getUser(user) {
   } else {
     sql = `
     SELECT * FROM users 
-      WHERE email = "${user.email}"
+      WHERE emailid = "${user.emailid}"
   `;
   }
   return await con.query(sql);  
@@ -69,25 +69,24 @@ async function getUser(user) {
 
 
 async function login(user) { 
-  console.log(user.email);
+ // console.log(user.email);
 let cUser = await getUser(user); 
 
-if(!cUser[0]) throw Error(user.email+" email not found");
+if(!cUser[0]) throw Error("Username incorrect");
 if(cUser[0].password !== user.password) throw Error("Password incorrect");
 console.log(cUser[0]);
-
 return cUser[0];
 }
 
 async function updateUser(user) {
   let sql = `UPDATE users 
-    SET email = "${user.email}"
+    SET emailid = "${user.emailid}"
     WHERE userID = ${user.userID}
   `;
   
   await con.query(sql);
-  let updatedUser = await getUser(user);
-  return updatedUser[0];
+  let nUser = await getUser(user);
+  return nUser[0];
   }
 
 async function deleteUser(user) {
@@ -98,4 +97,4 @@ async function deleteUser(user) {
   }
 
 
-module.exports = { getAllUsers, login, register, deleteUser, updateUser};
+module.exports = { getAllUsers,login, register, deleteUser, updateUser};

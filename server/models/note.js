@@ -2,11 +2,10 @@ const con = require("./db_connect");
 
 
 async function createTable() {
-await con.query(`CREATE DATABASE IF NOT EXISTS ${process.env.MYSQL_DB}`);
-await con.query(`USE ${process.env.MYSQL_DB}`) ;
+//await con.query(`CREATE DATABASE IF NOT EXISTS ${process.env.MYSQL_DB}`);
+// await con.query(`USE ${process.env.MYSQL_DB}`) ;
 let sql=`CREATE TABLE IF NOT EXISTS notes (
   noteID INT NOT NULL AUTO_INCREMENT,
-  emailid VARCHAR(255) NOT NULL,
   notes VARCHAR(255) NOT NULL,
   userID INT NOT NULL,
   CONSTRAINT notePK PRIMARY KEY(noteID),
@@ -16,10 +15,10 @@ await con.query(sql);
 }
 createTable();
 
-async function create(note) {
+async function createNote(note) {
 
-const sql = `INSERT INTO notes (emailid, notes)
-  VALUES ("${note.emailid}","${note.notes}");
+const sql = `INSERT INTO notes (userID, notes)
+  VALUES ("${note.userID}","${note.notes}");
 `
 
 await con.query(sql);
@@ -65,4 +64,4 @@ async function deleteNote(note) {
   await con.query(sql);
   }
 
-module.exports = { getAllNotes, getNote, create, deleteNote, editNote};
+module.exports = { getAllNotes, getNote, createNote, deleteNote, editNote};

@@ -27,4 +27,4 @@ con.connect(function (err){
   });
 });
 
-module.exports = {con, query};
+module.exports = {con, query};
