@@ -10,7 +10,7 @@
    
    */
   // Fetch method implementation:
-export async function fetchData(route = '', data = {}, methodType) {
+  export async function fetchData(route = '', data = {}, methodType) {
     const response = await fetch(`http://localhost:3000${route}`, {
       method: methodType, // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin

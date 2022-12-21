@@ -73,14 +73,14 @@ function registertion(e){
   .then((data) => {
     setCurrentUser(data);
    
-    window.location.href = "Note.html";
+    window.location.href = "Note.html";
 
   })
   .catch((err) =>{
     
     let p = document.querySelector('.error');
     p.innerHTML = err.message;
-  })
+  })
 
    // console.log(regi.FN)
    // console.log(regi.LN)
@@ -94,7 +94,7 @@ function loginuser(l){
     l.preventDefault();
     let user1=document.getElementById('emailid').value;
     let password1=document.getElementById('password').value;
-    let login1= new main(user1,password1);
+    let login1= new main(null,null,user1,password1);
     fetchData("/users/login", login1,"POST")
  .then((data) => {
     setCurrentUser(data)
@@ -103,7 +103,7 @@ function loginuser(l){
   })
   .catch((err) => {
     console.log(`Error!!! ${err.message}`)
-  })
+  })
    // console.log(`${user}`);
    // console.log(`${password}`);
     loginform.reset();
@@ -125,7 +125,7 @@ function notem(f)
     .catch((err) => {
      console.log(`Error!!! ${err.message}`)
      alert("Error");
-    })
+    })
     console.log(`${notetext}`);
     noteform.reset();
 }
@@ -140,7 +140,7 @@ function getallnotes(){
  console.log(data);
  for(let i=0;i<data.length;i++){
 notetext.value='\n'+data[i].notes
- }
+ }
 
-    })
+    })
 }

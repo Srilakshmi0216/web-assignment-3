@@ -12,14 +12,10 @@ router
     }
   })
 
-  .get('/getNote', async (req, res) => {
+  .post('/getNote', async (req, res) => {
     try {
       let note = await Note.getNote(req.body);
-      if(note["0"]){
-        res.send({...note})
-      }else{
-        res.send({error:"Enter a valid noteID"});
-      }
+        res.send(note)
     } catch(err) {
       res.status(401).send({message: err.message});
     }
